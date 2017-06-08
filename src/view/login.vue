@@ -29,6 +29,8 @@
 </template>
 
 <script>
+ import axios from "axios"
+
  export default {
     data() {
       var validatePass = (rule, value, callback) => {
@@ -65,6 +67,9 @@
         this.$refs[formName].validate((valid) => {
           if (valid) {
             alert('submit!');
+            axios.get("http://g.cn").then(res=>{
+              console.log(res)
+            })
           } else {
             console.log('error submit!!');
             return false;
@@ -98,8 +103,8 @@
         justify-content:center;
     }
     .loginLogo {
-        width: 100px;
-        height: 100px;
+        width: 96px;
+        height: 110px;
         border-radius:50%;
         background: #20a0ff;
     }
@@ -108,12 +113,15 @@
         justify-content:center;
     }
     .loginForm {
-         width: 300px;
+         width: 251px;
         display:flex;
         flex-direction:column;
         justify-content:center;
     }
     .loginIn {
-        width: 300px;
+        width: 251px;
+    }
+    .loginFooter {
+      color:#A9A9A9;
     }
 </style>

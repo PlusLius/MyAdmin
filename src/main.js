@@ -8,6 +8,7 @@ import 'element-ui/lib/theme-default/index.css'
 import 'normalize.css/normalize.css'
 import NProgress from 'nprogress'; // Progress 进度条
 import 'nprogress/nprogress.css';// Progress 进度条 样式
+import "./mock/mock"
 
 Vue.use(ElementUI);
 
