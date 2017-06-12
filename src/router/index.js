@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
-import login from '../view/login'
-import endHeader from '../view/endHeader'
-
+// import login from '../components/login'
+// import endHeader from '../components/endHeader'
+import view from "../view/index"
+import endContent from "../components/endContent"
 
 Vue.use(Router)
 
@@ -12,7 +12,11 @@ export default new Router({
     {
       path: '/',
       name: 'login',
-      component: endHeader
-    }
+      component: view
+    },
+    // {
+    //   path: '/',
+    //   component:
+    // }
   ]
 })
