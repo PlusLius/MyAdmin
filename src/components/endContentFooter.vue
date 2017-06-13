@@ -17,6 +17,7 @@ export default {
     .endContentFooterBox {
         display: flex;
         min-height: 35px;
+        margin-top:39px;
         box-sizing: border-box;
         padding:0 20px;
         justify-content: flex-end;

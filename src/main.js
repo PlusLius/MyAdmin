@@ -8,6 +8,7 @@ import 'element-ui/lib/theme-default/index.css'
 import 'normalize.css/normalize.css'
 import NProgress from 'nprogress'; // Progress 进度条
 import 'nprogress/nprogress.css';// Progress 进度条 样式
+import store from "./store/index"
 import "./mock/mock"
 
 Vue.use(ElementUI);
@@ -17,7 +18,7 @@ router.beforeEach((to, from, next)=>{
     setTimeout(()=>{
          next()
          NProgress.done();
-    },1000)
+    },300)
 })
 // NProgress.start();
 
@@ -28,6 +29,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 })

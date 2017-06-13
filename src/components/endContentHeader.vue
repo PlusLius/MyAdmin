@@ -1,12 +1,14 @@
 <template>
   <div class="box">
      <div class="boxLeft">
-         <slot name="headFont" class="headFont"></slot>
+         <div class="headFont">
+           {{getConHeadFont}}
+         </div>
      </div>
      <div class="boxRight">
           <el-select v-model="value" placeholder="请选择" class="select">
                 <el-option
-                v-for="item in options"
+                v-for="item in getConHeadOptions"
                 :key="item.value"
                 :label="item.label"
                 :value="item.value">
@@ -27,28 +29,42 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   data() {
       return {
-        options: [{
-          value: '选项1',
-          label: '黄金糕'
-        }, {
-          value: '选项2',
-          label: '双皮奶'
-        }, {
-          value: '选项3',
-          label: '蚵仔煎'
-        }, {
-          value: '选项4',
-          label: '龙须面'
-        }, {
-          value: '选项5',
-          label: '北京烤鸭'
-        }],
+      //   options: [{
+      //     value: '选项1',
+      //     label: '黄金糕'
+      //   }, {
+      //     value: '选项2',
+      //     label: '双皮奶'
+      //   }, {
+      //     value: '选项3',
+      //     label: '蚵仔煎'
+      //   }, {
+      //     value: '选项4',
+      //     label: '龙须面'
+      //   }, {
+      //     value: '选项5',
+      //     label: '北京烤鸭'
+      //   }],
         value: ''
       }
-    }
+    },
+  // created(){
+  //   ...mapGetters([
+  //     'getConHeadFont',
+  //     'getConHeadOptions'
+  //   ])
+  // },
+  computed: {
+    ...mapGetters([
+      'getConHeadFont',
+      'getConHeadOptions'
+    ])
+  }
 }
 </script>
 
@@ -58,7 +74,7 @@ export default {
         display: flex;
         box-sizing: border-box;
         padding:0 20px;
-        max-height:60px;
+        min-height:60px;
         border-bottom:1px solid #ccc;
         font-size: 14px;
         color:#444444;

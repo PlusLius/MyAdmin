@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import login from '../components/login'
+import login from '../components/login'
 // import endHeader from '../components/endHeader'
 import view from "../view/index"
 import endContent from "../components/endContent"
@@ -12,11 +12,17 @@ export default new Router({
     {
       path: '/',
       name: 'login',
-      component: view
+      component: login
     },
-    // {
-    //   path: '/',
-    //   component:
-    // }
+    {
+      path: '/menu',
+      name:'menu',
+      component:view,
+      children:[
+        {path: "/",name:'publicSignal',component:endContent},
+        {path: 'publicSignal',name:'publicSignal',component:endContent},
+        {path: 'device',name:'device',component:endContent}
+      ]
+    }
   ]
 })

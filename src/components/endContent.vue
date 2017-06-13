@@ -1,8 +1,7 @@
 <template>
     <div class="content">
-        <myConHead>
-            <div slot="headFont">公众号管理</div>
-        </myConHead>
+        <myConHead></myConHead>
+        <myConBody></myConBody>
         <myFooter></myFooter>
     </div>
 </template>
@@ -10,10 +9,13 @@
 <script>
 import myConHead from "../components/endContentHeader"
 import myFooter from "../components/endContentFooter"
+import myConBody from "../components/endContentBody"
+
 export default {
   components:{
       myConHead,
-      myFooter
+      myFooter,
+      myConBody
   }
 }
 </script>
@@ -22,5 +24,6 @@ export default {
     .content {
         width: 100%;
         height: 100%;
+        overflow: hidden;
     }
 </style>

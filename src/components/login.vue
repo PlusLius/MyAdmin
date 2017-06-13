@@ -66,7 +66,7 @@
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            alert('submit!');
+            this.$router.replace("/menu")
             axios.get("http://g.cn").then(res=>{
               console.log(res)
             })
