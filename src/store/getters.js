@@ -4,6 +4,9 @@ const getters = {
     },
     getConHeadOptions(state){
         return state.pub.ConHeadOptions
+    },
+    getPubList(state){
+        return state.pubSignal.pubList
     }
 }
 

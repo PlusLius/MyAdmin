@@ -1,6 +1,8 @@
 import Mock from "mockjs"
-Mock.mock('http://g.cn', {
-    'name'     : '@name',
-    'age|1-100': 100,
-    'color'    : '@color'
-});
+import devList from "./devList"
+import pubList from "./pubList"
+         
+Mock.mock("/devList","get",devList)
+Mock.mock("/getPubLis","get",pubList)
+
+export default Mock

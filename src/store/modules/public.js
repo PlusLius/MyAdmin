@@ -10,14 +10,6 @@ const pub = {
         changeConHeadOptions(state,value){
             state.ConHeadOptions = value;
         }
-    },
-    getters: {
-        getConHeadFont(state){
-            return state.ConHeadFont
-        },
-        getConHeadOptions(state){
-            return state.ConHeadOptions
-        }
     }
 }
 

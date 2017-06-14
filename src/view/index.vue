@@ -23,6 +23,7 @@ export default {
             value: '公众号名称',
             label: '公众号名称'
         }],
+        data:[]
       }
   },
   components: {
@@ -32,6 +33,7 @@ export default {
   created(){
      this.$store.commit("changeConHeadFont",this.fontS)
      this.$store.commit("changeConHeadOptions",this.optionsS)
+     this.$store.dispatch("getPubList")
   }
 }
 </script>
