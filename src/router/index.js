@@ -19,9 +19,11 @@ export default new Router({
       name:'menu',
       component:view,
       children:[
-        {path: "/",name:'publicSignal',component:endContent},
-        {path: 'publicSignal',name:'publicSignal',component:endContent},
-        {path: 'device',name:'device',component:endContent}
+        {path: "/",name:'publicSignal',title:'publicSignal',component:endContent},
+        {path: 'publicSignal',name:'publicSignal',title:'publicSignal',component:endContent},
+        {path: 'device',name:'device',title:'device',component:endContent},
+        {path: 'publicSignalEdit',name:'publicSignalEdit',component:endContent},
+        {path: 'deviceEdit',name:'deviceEdit',component:endContent},
       ]
     }
   ]

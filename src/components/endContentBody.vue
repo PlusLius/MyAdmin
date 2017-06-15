@@ -3,6 +3,7 @@
 
           <el-table
             :data="getPubList"
+            v-loading.body="loading"
             border
             style="width: 100%"
             max-height="377"
@@ -88,15 +89,16 @@
         </el-table>
 
         <el-table
-        :data="tableData"
+        :data="getDevList"
         max-height="377"
         border
         style="width: 100%"
+        v-loading.body="loading"
         v-if="$route.name == 'device'"
         >
         <el-table-column
           fixed
-          prop="date"
+          prop="devCode"
           label="设备编码"
           sortable
           width="180">
@@ -115,39 +117,39 @@
           </template>
         </el-table-column>
         <el-table-column
-          prop="address"
+          prop="devClass"
           label="设备类型编码"
-          :formatter="formatter">
+        >
         </el-table-column>
         <el-table-column
-          prop="address"
+          prop="mac"
           label="Mac地址"
-          :formatter="formatter">
+        >
         </el-table-column>
         <el-table-column
-          prop="address"
+          prop="versiton"
           label="设备版本"
-          :formatter="formatter">
+        >
         </el-table-column>
         <el-table-column
-          prop="address"
+          prop="pubId"
           label="所属公众号ID"
-          :formatter="formatter">
+        >
         </el-table-column>
         <el-table-column
-          prop="address"
+          prop="devClass"
           label="所属公众号设备ID"
-          :formatter="formatter">
+        >
         </el-table-column>
         <el-table-column
-          prop="address"
+          prop="ticket"
           label="所属公众号设备ticket"
-          :formatter="formatter">
+        >
         </el-table-column>
         <el-table-column
-          prop="address"
+          prop="more"
           label="备注"
-          :formatter="formatter">
+        >
         </el-table-column>
         <el-table-column
             fixed="right"
@@ -172,12 +174,15 @@
 import {mapGetters} from "vuex"
 
 export default {
-    // created(){
-    //    this.$store.dispatch("getPubList")
-    // },
+    created(){
+        setTimeout(() => {
+          this.loading = false;
+        }, 1000);
+    },
     computed:{
       ...mapGetters([
-        'getPubList'
+        'getPubList',
+        'getDevList'
       ])
     },
     methods: {
@@ -189,82 +194,23 @@ export default {
       },
       filterTag(value, row) {
         return row.tag === value;
+      },
+      handleEdit(index, row) {
+        console.log(index, row);
+        if(this.$route.name == "publicSignal"){
+          this.$router.replace("/menu/publicSignalEdit")
+        }
+        else if (this.$route.name == "device"){
+          this.$router.replace("/menu/deviceEdit")
+        }
+      },
+      handleDelete(index, row) {
+        console.log(index, row);
       }
     },
     data() {
       return {
-        // tableData4: [{
-        //   date: '2016-05-03',
-        //   name: '王小虎',
-        //   province: '上海',
-        //   city: '普陀区',
-        //   address: '上海市普陀区金沙江路 1518 弄',
-        //   zip: 200333
-        // }, {
-        //   date: '2016-05-02',
-        //   name: '王小虎',
-        //   province: '上海',
-        //   city: '普陀区',
-        //   address: '上海市普陀区金沙江路 1518 弄',
-        //   zip: 200333
-        // }, {
-        //   date: '2016-05-04',
-        //   name: '王小虎',
-        //   province: '上海',
-        //   city: '普陀区',
-        //   address: '上海市普陀区金沙江路 1518 弄',
-        //   zip: 200333
-        // }, {
-        //   date: '2016-05-01',
-        //   name: '王小虎',
-        //   province: '上海',
-        //   city: '普陀区',
-        //   address: '上海市普陀区金沙江路 1518 弄',
-        //   zip: 200333
-        // }, {
-        //   date: '2016-05-08',
-        //   name: '王小虎',
-        //   province: '上海',
-        //   city: '普陀区',
-        //   address: '上海市普陀区金沙江路 1518 弄',
-        //   zip: 200333
-        // }, {
-        //   date: '2016-05-06',
-        //   name: '王小虎',
-        //   province: '上海',
-        //   city: '普陀区',
-        //   address: '上海市普陀区金沙江路 1518 弄',
-        //   zip: 200333
-        // }, {
-        //   date: '2016-05-07',
-        //   name: '王小虎',
-        //   province: '上海',
-        //   city: '普陀区',
-        //   address: '上海市普陀区金沙江路 1518 弄',
-        //   zip: 200333
-        // }],
-        // tableData: [{
-        //   date: '2016-05-02',
-        //   name: '王小虎',
-        //   address: '上海市普陀区金沙江路 1518 弄',
-        //   tag: '网关'
-        // }, {
-        //   date: '2016-05-04',
-        //   name: '王小虎',
-        //   address: '上海市普陀区金沙江路 1517 弄',
-        //   tag: '锁'
-        // }, {
-        //   date: '2016-05-01',
-        //   name: '王小虎',
-        //   address: '上海市普陀区金沙江路 1519 弄',
-        //   tag: '网关'
-        // }, {
-        //   date: '2016-05-03',
-        //   name: '王小虎',
-        //   address: '上海市普陀区金沙江路 1516 弄',
-        //   tag: '锁'
-        // }]
-      
+         loading: true
       }
     }
 }

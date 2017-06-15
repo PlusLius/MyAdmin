@@ -18,7 +18,8 @@ for (let i = 0; i < count; i++) {
             pubId: '@guid',
             devId:'@guid',
             ticket: '@guid',
-            more:'@id'
+            more:'@id',
+            tag:'@ctitle(2)'
           // }
     //     ]
     //   }

@@ -7,6 +7,10 @@ const getters = {
     },
     getPubList(state){
         return state.pubSignal.pubList
+    },
+    getDevList(state){
+        console.log( state.device.devList)
+        return state.device.devList
     }
 }
 
