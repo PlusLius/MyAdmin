@@ -2,10 +2,10 @@
   <div class="box">
      <div class="boxLeft">
          <div class="headFont">
-           {{getConHeadFont}}
+           {{this.$route.meta.conHeadFont}}
          </div>
      </div>
-     <div class="boxRight">
+     <div class="boxRight" v-show="!$route.meta.isHidden">
           <el-select v-model="value" placeholder="请选择" class="select">
                 <el-option
                 v-for="item in getConHeadOptions"
@@ -39,8 +39,7 @@ export default {
     },
   computed: {
     ...mapGetters([
-      'getConHeadFont',
-      'getConHeadOptions'
+      'getConHeadOptions',
     ])
   }
 }

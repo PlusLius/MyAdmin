@@ -11,6 +11,9 @@ const getters = {
     getDevList(state){
         console.log( state.device.devList)
         return state.device.devList
+    },
+    getConHeadShow(state){
+        return state.pub.isShow
     }
 }
 

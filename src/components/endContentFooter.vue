@@ -1,5 +1,5 @@
 <template>
-    <div class="endContentFooterBox">
+    <div class="endContentFooterBox" v-show="!$route.meta.isHidden">
        <el-button type="primary" class="btn">上一页</el-button>
        <el-button type="primary" class="btn">下一页</el-button>
        <el-input v-model="input" placeholder="当前 / 页" class="btn page"></el-input>

@@ -19,11 +19,11 @@ export default new Router({
       name:'menu',
       component:view,
       children:[
-        {path: "/",name:'publicSignal',title:'publicSignal',component:endContent},
-        {path: 'publicSignal',name:'publicSignal',title:'publicSignal',component:endContent},
-        {path: 'device',name:'device',title:'device',component:endContent},
-        {path: 'publicSignalEdit',name:'publicSignalEdit',component:endContent},
-        {path: 'deviceEdit',name:'deviceEdit',component:endContent},
+        {path: "/",name:'publicSignal',  meta: { title: 'publicSignal' , conHeadFont:"公众号管理"},component:endContent},
+        {path: 'publicSignal',name:'publicSignal',  meta: { title: 'publicSignal',conHeadFont:"公众号管理"},component:endContent},
+        {path: 'device',name:'device',  meta: { title: 'device',conHeadFont:"设备管理"},component:endContent},
+        {path: 'publicSignalEdit',  meta: { title: 'publicSignal' ,isHidden:true,conHeadFont:"公众号添加"},name:'publicSignalEdit',component:endContent},
+        {path: 'deviceEdit',  meta: { title: 'device' ,isHidden:true,conHeadFont:"设备添加"},name:'deviceEdit',component:endContent},
       ]
     }
   ]

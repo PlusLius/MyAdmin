@@ -2,8 +2,7 @@
     <div class="endSlider">
         <el-row class="tac">
             <el-col :span="8" class="el-Control">
-              
-                <el-menu :default-active="$route.name" class="el-menu-vertical-demo">
+                <el-menu :default-active="$route.meta.title" class="el-menu-vertical-demo">
                     <el-menu-item index="publicSignal"  @click="goPubSingal"><i class="el-icon-setting"></i>公众号管理</el-menu-item>
                     <el-menu-item index="device"  @click="goDevice"><i class="el-icon-setting"></i>设备管理</el-menu-item>
                 </el-menu>
@@ -18,8 +17,6 @@
 export default {
   data(){
       return {
-        fontS:"公众号管理",
-        fontD:"设备管理",
         optionsS:[{
           value: '选项1',
           label: '公众号app_id'
@@ -41,13 +38,11 @@ export default {
   },
   methods:{
       goPubSingal(){
-          this.$store.commit("changeConHeadFont",this.fontS)
           this.$store.commit("changeConHeadOptions",this.optionsS)
           this.$store.dispatch("getPubList")
           this.$router.replace({path:"/menu/publicSignal"})
       },
       goDevice(){
-          this.$store.commit("changeConHeadFont",this.fontD)
           this.$store.commit("changeConHeadOptions",this.optionsD)
           this.$store.dispatch("getDevList")
           this.$router.replace({path:"/menu/device"})
